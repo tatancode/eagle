@@ -30,7 +30,7 @@ export const allQuestions = [
   ...citizenshipQuestions,
   ...constitutionQuestions,
   ...foundersQuestions,
-  ...amendmentQuestions
+  ...amendmentQuestions,
 ];
 
 // Function to shuffle an array
@@ -45,8 +45,8 @@ const shuffleArray = (array) => {
 // Function to get random questions with randomized options
 export const getRandomQuestions = (count = 10) => {
   const shuffled = shuffleArray([...allQuestions]);
-  return shuffled.slice(0, count).map(question => ({
+  return shuffled.slice(0, count).map((question) => ({
     ...question,
-    options: shuffleArray([...question.options])
+    options: shuffleArray([...question.options]),
   }));
 };

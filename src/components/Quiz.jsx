@@ -13,7 +13,7 @@ const Quiz = ({ onClose }) => {
 
   const handleAnswerClick = (answer) => {
     if (isAnswered) return;
-    
+
     setSelectedAnswer(answer);
     setIsAnswered(true);
 
@@ -33,14 +33,14 @@ const Quiz = ({ onClose }) => {
   };
 
   const getButtonClass = (option) => {
-    if (!isAnswered) return "bg-white";
+    if (!isAnswered) return 'bg-white';
     if (option === questions[currentQuestion].correctAnswer) {
-      return "bg-green-500 text-white transform scale-105";
+      return 'bg-green-500 text-white transform scale-105';
     }
     if (option === selectedAnswer) {
-      return "bg-red-500 text-white";
+      return 'bg-red-500 text-white';
     }
-    return "bg-white opacity-50";
+    return 'bg-white opacity-50';
   };
 
   if (showResults) {
@@ -48,14 +48,18 @@ const Quiz = ({ onClose }) => {
     return (
       <div className="animate-fade-in">
         <div className="text-center mb-8">
-          <div className={`text-4xl font-bold mb-4 ${passed ? 'text-green-500' : 'text-red-500'}`}>
+          <div
+            className={`text-4xl font-bold mb-4 ${passed ? 'text-green-500' : 'text-red-500'}`}
+          >
             {passed ? 'Congratulations!' : 'Keep Practicing!'}
           </div>
           <div className="text-xl text-gray-600">
             You scored {score} out of {questions.length}
           </div>
           <div className="text-gray-500 mt-2">
-            {passed ? 'You passed the practice test!' : 'You need 6 correct answers to pass.'}
+            {passed
+              ? 'You passed the practice test!'
+              : 'You need 6 correct answers to pass.'}
           </div>
         </div>
         <button
@@ -73,7 +77,9 @@ const Quiz = ({ onClose }) => {
       {/* Progress Bar */}
       <div className="mb-6">
         <div className="flex justify-between text-sm text-gray-600 mb-2">
-          <span>Question {currentQuestion + 1} of {questions.length}</span>
+          <span>
+            Question {currentQuestion + 1} of {questions.length}
+          </span>
           <span>Score: {score}</span>
         </div>
         <div className="h-2 bg-gray-200 rounded-full">
